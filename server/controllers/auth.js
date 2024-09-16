@@ -6,7 +6,6 @@ import users from '../models/auth.js';
 import OTP from "../models/OTP.js"
 
 export const sendotp = async (req, res) => {
-
     try{
         // fetch email from request of body
         const {email} = req.body;

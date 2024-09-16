@@ -23,3 +23,12 @@ export const submissionEndPoints = {
     GET_SUBMISSION_API: BASE_URL+"/submission/getSubmission",
     GET_SUBMISSION_BY_ID_API: BASE_URL+"/submission/getSubmission/id",
 }
+
+export const userEndPoints = {
+    SIGN_UP_API: BASE_URL+"/users/signup",
+    LOGIN_API: BASE_URL+"/users/login",
+    SEND_OTP_API: BASE_URL+"/users/sendotp",
+    CHANGE_PASSWORD_API: BASE_URL+"/users/changepassword",
+    RESET_PASSWORD_TOKEN_API: BASE_URL+"/users/reset-password-token",
+    RESET_PASSWORD_API: BASE_URL+"/users/reset-password",
+}

@@ -1,0 +1,24 @@
+/* App.css */
+
+
+/* For WebKit browsers */
+
+.no-spinners::-webkit-inner-spin-button,
+.no-spinners::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* For Firefox */
+
+.no-spinners {
+    -moz-appearance: textfield;
+}
+
+
+/* For Internet Explorer */
+
+.no-spinners::-ms-clear {
+    display: none;
+}

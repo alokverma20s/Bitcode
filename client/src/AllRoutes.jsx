@@ -11,11 +11,13 @@ import AddProblem from './Pages/Contest/AddProblem';
 import ContestPage from './Pages/Contest/ContestPage';
 import Leaderboard from './Pages/Contest/Leaderboard';
 import Home from './Pages/Home';
+import Auth from './components/Auth';
 
 const AllRoutes = () => {
   return (
     <Routes>
         <Route path='/' element={<Home/>}></Route>
+        <Route path='/auth' element={<Auth/>}></Route>
         <Route path='/contest' element={<Contest/>}></Route>
         <Route path='/contest/createContest' element={<CreateContest/>}></Route>
         <Route path='/contest/editContest/:id' element={<EditContest/>}></Route>
