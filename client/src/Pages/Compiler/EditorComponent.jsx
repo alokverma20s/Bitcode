@@ -29,7 +29,7 @@ const EditorComponent = ({setLightTheme, lightTheme}) => {
   const [isLoading, setIsLoading] = useState(false);
   const [output, setOutput] = useState({})
   const [modalOpen, setModalOpen] = useState(false);
-  const user = JSON.parse(localStorage.getItem("Profile"))?.result?._id;
+  const user = JSON.parse(localStorage.getItem("userInfo")).id;
   const params = useParams()
   const contest = params.constestId;
   const problem = params.problemId;
@@ -86,6 +86,7 @@ const EditorComponent = ({setLightTheme, lightTheme}) => {
       });
     }
   };
+    
 
   return (
     <div>

@@ -10,29 +10,42 @@ const {
 } = submissionEndPoints;
 
 export function runCodeOnServer(setLoading, submissionData, setOutput) {
-  return async (dispatch) => {
+  console.log(submissionData);
+  return async () => {
     setLoading(true);
+
     try {
-      console.log(submissionData);
       const response = await apiConnector(
         "POST",
         RUN_SUBMISSION_API,
-        submissionData,
+        submissionData
       );
-      if (!response.data.success) {
-        throw new Error(response.data.message);
+      console.log(response);
+
+      // Ensure that response and response.data exist
+      if (!response || !response.data || !response.data.success) {
+        throw new Error(response?.data?.message || "Unknown error occurred");
       }
+
       setOutput(response.data);
-      if (response.data.status === "Accepted") toast.success("Accepted");
-      else if (response.data.status === "Rejected") {
-        if (response.data.yourOutput === "compilation error")
+
+      // Check the status and show appropriate toast
+      if (response.data.status === "Accepted") {
+        toast.success("Accepted");
+      } else if (response.data.status === "Rejected") {
+        if (response.data.yourOutput === "compilation error") {
           toast.error("Compilation Error");
-        else toast.error("Wrong Answer");
+        } else {
+          toast.error("Wrong Answer");
+        }
       }
     } catch (error) {
-      toast.error("Unable to create Submission");
+      console.error("Error while submitting:", error);
+      toast.error(error.message || "Unable to create submission");
+    } finally {
+      // Ensure loading state is set to false after processing is done
+      setLoading(false);
     }
-    setLoading(false);
   };
 }
 

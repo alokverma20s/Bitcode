@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "../Modal";
 import InputField from "../InputField";
 import { loggingIn, signup, sendotp } from "../../services/operations/authAPI";
@@ -7,9 +7,13 @@ import { useDispatch } from "react-redux";
 import Loader from "../Loader/Loader";
 import OtpInput from "react-otp-input";
 
-const Auth = () => {
-  const [isOpen, setIsOpen] = useState(true);
-  const onClose = () => {};
+const Auth = ({isModalOpen, setIsModalOpen}) => {
+  // const [isOpen, setIsOpen] = useState(open);
+
+
+  const onClose = () => {
+    setIsModalOpen(false);
+  };
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -58,7 +62,7 @@ const Auth = () => {
   };
   return (
     <div>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal isOpen={isModalOpen} onClose={onClose}>
         {!loading ? (
           sendOtp ? (
             <div className="text-center flex flex-col gap-7">
@@ -143,7 +147,7 @@ const Auth = () => {
                   </span>
                 </button>
               </form>
-              <div className="my-4">
+              <div className="my-4 text-gray-800">
                 {login ? (
                   <span>
                     Don't have account?

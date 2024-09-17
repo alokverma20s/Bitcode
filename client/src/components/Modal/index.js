@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-import { MdKeyboardArrowLeft } from "react-icons/md";
 
 const Modal = ({ isOpen, onClose, children }) => {
   const modalRef = useRef();
@@ -25,10 +24,13 @@ const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="fixed inset-0 flex items-center justify-center z-50">
+      {/* Glassy effect */}
+      <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-md"></div>
+
       <div
         ref={modalRef}
-        className="bg-white rounded-lg shadow-lg p-6 w-[496px] py-[31px] px-7 flex flex-col gap-6 items-center"
+        className="relative bg-white rounded-lg shadow-lg p-6 w-[496px] py-[31px] px-7 flex flex-col gap-6 items-center"
       >
         {children}
       </div>

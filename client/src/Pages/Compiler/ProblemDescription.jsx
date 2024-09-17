@@ -13,7 +13,7 @@ const ProblemDescription = ({question, loading, lightTheme}) => {
     { loading === true ? (<div>Loading...</div>) :
 
     
-    (<div className="w-full">
+    (<div className="w-full text-left">
       <h1 className="text-2xl font-semibold mb-3">{question.seq}. {question.name}</h1>
       <h1 className="text-2xl font-[Roboto] font-semibold mb-3 text-[#6974C6]">{question.problemName}</h1>
 

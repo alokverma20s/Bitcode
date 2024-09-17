@@ -18,11 +18,12 @@ export function signup(data, navigate, setLoading){
             }
             setLoading(false);
             
-            localStorage.setItem("userInfo", {
+            localStorage.setItem("userInfo",JSON.stringify({
                 token:response.data.token,
                 name: response.data.result.name,
                 email: response.data.result.email,
-            });
+                id: response.data.result._id
+            }));
             navigate('/');
             toast.success("Signup Successfull");
         } catch (error) {
@@ -41,11 +42,12 @@ export function loggingIn(data, navigate, setLoading){
                 throw new Error(response.data.message);
             }
             setLoading(false);
-            localStorage.setItem("userInfo", {
+            localStorage.setItem("userInfo", JSON.stringify({
                 token:response.data.token,
                 name: response.data.result.name,
                 email: response.data.result.email,
-            });
+                id: response.data.result._id
+            }));
             navigate('/');
             toast.success("Login Successfull");
         } catch (error) {
