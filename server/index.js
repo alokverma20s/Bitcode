@@ -12,7 +12,11 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(cors())
+app.use(cors(
+    {
+        origin: process.env.ALLOWED_ORIGINS || "https://bitcodee.netlify.app/", // Specify the allowed origin here
+    }
+))
 
 app.use("/users", userRoutes);
 app.use("/contest", contestRoutes);
