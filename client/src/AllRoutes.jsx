@@ -72,7 +72,7 @@ const AllRoutes = () => {
         }
       />
       <Route
-        path='/contest/:contestId/:problemId'
+        path='/contest/:constestId/:problemId'
         element={
           <ProtectedRoute isLoggedIn={isLoggedIn}>
             <ChakraProvider>
