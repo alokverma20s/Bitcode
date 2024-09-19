@@ -58,7 +58,7 @@ const EditorComponent = ({setLightTheme, lightTheme}) => {
     const sourceCode = editorRef.current.getValue();
     if (!sourceCode) return;
     try {
-      runCodeOnServer(setIsLoading, {user, problem, contest, language,version: LANGUAGE_VERSIONS[language], sourceCode, stdin}, setOutput)
+      dispatch(runCodeOnServer(setIsLoading, {user, problem, contest, language,version: LANGUAGE_VERSIONS[language], sourceCode, stdin}, setOutput));
       setModalOpen(true);
     } catch (error) {
       console.log(error);
